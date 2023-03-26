@@ -62,8 +62,10 @@ function handleKeydown(event) {
     }
 }
 
+const board = initializeBoard();
+
 // Update the user interface
-function updateUI() {
+function updateUI(board) {
     const cells = grid.querySelectorAll(".cell"); // Get all the cell elements from the grid
     
     // Update each cell's text content and background color
@@ -128,7 +130,7 @@ function getBoardPosition(index) {
 }
 
 // Find a random empty cell on the board
-function getRandomEmptyCell() {
+function getRandomEmptyCell(board) {
     const emptyCells = [];
     
     // Iterate through the board to find empty cells
