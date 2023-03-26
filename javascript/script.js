@@ -38,21 +38,25 @@ function isGameOver() {
 
 // Handle the keydown event for arrow keys
 function handleKeydown(event) {
+    let hasMoved;
     switch (event.key) {
         case 'ArrowUp':
-            move('up');
+            hasMoved = move('up');
             break;
         case 'ArrowDown':
-            move('down');
+            hasMoved = move('down');
             break;
         case 'ArrowLeft':
-            move('left');
+            hasMoved = move('left');
             break;
         case 'ArrowRight':
-            move('right');
+            hasMoved = move('right');
             break;
         default:
             return;
+    }
+    if (hasMoved) {
+        addRandomNumber();
     }
     updateUI(); // Update the user interface
     
@@ -161,10 +165,9 @@ function move(direction) {
             hasMoved = moveCell(i, direction) || hasMoved;
         }
     }
-    // If any cell has moved, add a random number to the board
-    if (hasMoved) {
-        addRandomNumber();
-    }
+    
+    // Return true if a cell has moved and false if not
+    return hasMoved;
 }
         
 // Move a cell based on the given index and direction
