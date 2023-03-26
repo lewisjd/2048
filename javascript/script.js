@@ -54,7 +54,6 @@ function handleKeydown(event) {
         default:
             return;
     }
-    addRandomNumber(); // Add a random number after each move
     updateUI(); // Update the user interface
     
     if (isGameOver()) { // Check if the game is over
