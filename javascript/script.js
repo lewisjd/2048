@@ -55,10 +55,6 @@ function handleKeydown(event) {
             return;
     }
     addRandomNumber(); // Add a random number after each move
-    if (board.firstMove) {
-        addRandomNumber(); // Add a second random number if it's the first move
-        board.firstMove = false; // Update the flag to indicate the first move has been made
-    }
     updateUI(); // Update the user interface
     
     if (isGameOver()) { // Check if the game is over
@@ -115,7 +111,6 @@ function initializeBoard() {
     for (let i = 0; i < 16; i++) {
         board.push(new Cell(0)); // Create a new cell with a value of 0 and add it to the board
     }
-    board.firstMove = true; // Add a flag to indicate the first move
     return board;
 }
 
